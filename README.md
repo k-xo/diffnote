@@ -1,7 +1,7 @@
 # DiffNote
 
 ## Overview
-DiffNote is a CLI tool designed to generate commit messages automatically based on Git diffs. Utilizing the power of OpenAI's GPT-4, it analyzes your code changes and suggests relevant commit messages, adhering to the Conventional Commits standard.
+DiffNote is a CLI tool designed to generate commit messages automatically based on Git diffs. using a gpt assistant it analyzes your code changes and suggests relevant commit messages, that adhere to the conventional commit spec
 
 ## Installation
 
