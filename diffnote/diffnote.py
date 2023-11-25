@@ -9,13 +9,11 @@ tokenizer = tiktoken.encoding_for_model("gpt-4-1106-preview")
 
 
 def generate_diffnote(git_diff):
-    tokens = tokenizer.decode(tokenizer.encode(git_diff))
-
     thread = client.beta.threads.create()
     client.beta.threads.messages.create(
         thread_id=thread.id,
         role="user",
-        content=tokens,
+        content=git_diff,
     )
 
     assistant = client.beta.assistants.retrieve("asst_NYGwmk5P299OoPsWqts5HGMA")
@@ -25,7 +23,7 @@ def generate_diffnote(git_diff):
 
     while run.status != "completed":
         run = client.beta.threads.runs.retrieve(thread_id=thread.id, run_id=run.id)
-        time.sleep(0.3)
+        time.sleep(0.2)
 
     messages = client.beta.threads.messages.list(thread_id=thread.id)
     assistant_response = ""
